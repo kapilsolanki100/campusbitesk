@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CampusBites — College Canteen</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <div class="brand">
+<img src="/img/logo.png" width="110px">   
+    <div class="brand-text"><center><p style="font-size: 28px;"><b>Welcome to CampusBites!</p></b></center><p class="tag"></p></div>
+      </div>
+      <nav class="menu">
+        <a href="#home"> 🏠 Home</a>
+        <a href="#menu-section">🍔Menu</a>
+        <a href="#contact">📞Contact</a>
+        <button id="open-cart" class="icon-btn"><i class="fa fa-shopping-cart"></i><span id="cart-count" class="cart-count">0</span></button>
+        <button id="admin-login" class="admin-btn">🔑 Admin Login</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home" style="background-color:#ffffff;">
+    
+    <section class="hero">
+      <div class="hero-left" style="background-image: url('/img/bg7.png');">
+        <h2>CampusBites</h2>
+        <p  class="hero-tag">The digital solution for our college canteen. Order your favorite foods online and skip the queue!</p>
+        <div class="hero-cta">
+          <button id="order-now" class="btn primary"><a href="#menu-section"><h3> Order Now</h3></a></button>
+          <button class="btn ghost" id="contact-btn" ><a href="#contact"><h3>Contact</h3></a></button>
+        </div>
+      </div>
+      <div class="hero-right"></div>
+    </section>
+
+    <section id="menu-section" class="container section">
+      <h3>Menu</h3>
+      <div id="menu-grid" class="grid">
+        <!-- menu items injected by JS -->
+      </div>
+    </section>
+
+    <section id="contact" class="container section">
+      <h3><span style="color:#007BFF; font-size:24px;">📞</span>
+Contact</h3>
+  <form  action="https://formsubmit.co/kapilsolanki971942@gmail.com" method="POST" class="form"id="contact-form" class="contact-form" style="max-width:400px;margin:0.rem 0 2rem 0;padding:0.1rem 1.2rem;background:var(--glass);border-radius:16px;box-shadow:0 8px 32px rgba(10,30,60,0.10);display:flex;flex-direction:column;gap:1.2rem;align-items:flex-start;">
+        <div style="display:flex;flex-direction:column;">
+          <label for="contact-name" style="font-weight:600;color:var(--accent);">Name</label>
+          <input id="contact-name" name="name" placeholder="Your name" required style="padding:.7rem 1rem;border-radius:8px;border:1px solid #e6eef9;font-size:16px;">
+        </div>
+        <div style="display:flex;flex-direction:column;gap:rem;">
+          <label for="contact-email" style="font-weight:600;color:var(--accent);">Email</label>
+          <input id="contact-email" name="email" placeholder="Your email" type="email" required style="padding:.7rem 1rem;border-radius:8px;border:1px solid #e6eef9;font-size:16px;">
+        </div>
+        
+        <div style="display:flex;flex-direction:column;gap:0em;">
+          <label for="contact-mobile" style="font-weight:600;color:var(--accent);">Mobile no.</label>
+          <input id="contact-mobile" name="mobile no" rows="1" placeholder="Your Phone no" style="padding:.7rem 1rem;border-radius:8px;border:1px solid #e6eef9;font-size:16px;resize:vertical;"></textarea>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0em;">
+          <label for="contact-msg" style="font-weight:600;color:var(--accent);">Message</label>
+          <textarea id="contact-msg" name="message" rows="2" placeholder="Message" style="padding:.7rem 1rem;border-radius:8px;border:1px solid #e6eef9;font-size:16px;resize:vertical;"></textarea>
+        </div>
+        <div style="text-align:center;margin-top:0em;">
+          <button type="submit" class="btn primary" id="send-contact" style="padding:.8rem 2.2rem;font-size:18px;border-radius:10px;font-weight:700;box-shadow:0 4px 16px rgba(11,107,179,0.10);background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;transition:background .2s;cursor:pointer;">Send</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- Cart Panel -->
+  <div id="cart-panel" class="cart-panel" hidden>
+    <h4>Your Cart</h4>
+    <div id="cart-items"></div>
+    <div class="cart-footer">
+      <div>Total: ₹<span id="cart-total">0</span></div>
+      <div><button id="checkout" class="btn primary">Proceed to Checkout</button></div>
+    </div>
+  </div>
+
+  <!-- Modal root -->
+  <div id="modal-root"></div>
+
+  <!-- Chatbot -->
+  <div id="chatbot-toggle" title="Chat with assistant">💬</div>
+  <div id="chatbot-panel" hidden>
+    <div id="chat-log"></div>
+    <div class="chat-input">
+      <input id="chat-input" placeholder="Ask about menu, payment or admin...">
+      <button id="chat-send" class="btn">Send</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h2>About CampusBites</h2>
+        <p>CampusBites modernizes canteen ordering system <br>You can order your favorite food online with this website <br>Your food item get ready without any delay so that you don't need to wait for preparing your favourite food item </p>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <p>✉️Email: kapilsolanki971942@gmail.com</p>
+        <p>📞Phone: +91 9634648312</p>
+        
+        </div>
+
+       <div class="social-links">
+                    <h2>Social Handle Links</h2><br>
+                    <div class="social">
+                        <ul>
+                            <li><a href="https://www.instagram.com/kapil.solanki100/?utm_source=ig_web_button_share_sheet"><img src="https://img.icons8.com/color/48/null/facebook-new.png"/></a>
+                            <a href="https://www.instagram.com/kapil.solanki100/?utm_source=ig_web_button_share_sheet"><img src="https://img.icons8.com/fluency/48/null/instagram-new.png"/></a>
+                            <a href="https://www.instagram.com/kapil.solanki100/?utm_source=ig_web_button_share_sheet"><img src="https://img.icons8.com/color/48/null/twitter--v1.png"/></a>
+                            <a href="https://www.instagram.com/kapil.solanki100/?utm_source=ig_web_button_share_sheet"><img src="https://img.icons8.com/color/48/null/linkedin-circled--v1.png"/></a>
+                            <a href="https://www.instagram.com/kapil.solanki100/?utm_source=ig_web_button_share_sheet"><img src="https://img.icons8.com/color/48/null/youtube-play.png"/></a></li>
+                        </ul>
+                    </div>
+                </div>
+    </div>
+    <div class="admin-image">
+  <img src="/img/admin.jpg
+  " class="admin-photo" alt="Admin">
+  <p class="admin-name">Kapil Solanki — Admin</p>
+</div>
+    <center><div class="copyright">© CampusBites,Design by Kapil Solanki</div></center>
+  </footer>
+
+  <script type="module" src="js/firebase.js"></script>
+  <script type="module" src="js/chatbot.js"></script>
+  <script type="module" src="js/admin.js"></script>
+  <script type="module" src="js/custom.js"></script>
+</body>
+</html>
